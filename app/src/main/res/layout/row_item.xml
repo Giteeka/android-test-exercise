@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="rowItem"
+                  type="com.app.proofofconcept.data.model.RowItem"/>
+    </data>
+    <androidx.cardview.widget.CardView
+            app:contentPadding="15dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:textSize="18sp"
+                    android:id="@+id/tv_title"
+                    tools:text="Test"
+                    android:textColor="@color/textPrimary"
+                    android:text="@{rowItem.title}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:text="@{rowItem.description}"
+                    android:textSize="14sp"
+                    tools:text="Test"
+                    android:id="@+id/tv_desc"
+                    android:textColor="@color/textSecondary"
+                    app:layout_constraintHorizontal_weight="0.6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_ref"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_ref"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="7dp"
+                    setImagePath="@{rowItem.imageHref}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintHorizontal_weight="0.4"
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
