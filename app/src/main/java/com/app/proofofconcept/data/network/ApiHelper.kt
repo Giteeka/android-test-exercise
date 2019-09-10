@@ -4,6 +4,7 @@ import com.app.proofofconcept.BuildConfig
 import com.app.proofofconcept.data.network.reponse.FactResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -38,5 +39,5 @@ object ApiHelper {
 
     val apiService = getClient().create(ApiService::class.java)
 
-    suspend fun getFacts(): Response<FactResponse> = apiService.getFacts()
+    fun getFacts(): Call<FactResponse> = apiService.getFacts()
 }
