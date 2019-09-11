@@ -57,8 +57,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
      */
     abstract fun getViewModel(): V?
 
-    val isNetworkConnected: Boolean
-        get() = NetworkUtils.isNetworkConnected(applicationContext)
+    val isNetworkConnected: Boolean?
+        get() = dataManager?.networkUtils?.isNetworkConnected()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

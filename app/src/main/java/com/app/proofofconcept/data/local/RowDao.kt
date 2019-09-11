@@ -1,9 +1,6 @@
 package com.app.proofofconcept.data.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.app.proofofconcept.data.model.RowItem
 
 @Dao
@@ -17,4 +14,8 @@ interface RowDao {
 
     @Query("SELECT * from RowItem")
     suspend fun getRowItems(): List<RowItem>
+
+    @Query("DELETE from RowItem")
+    suspend fun deleteAll()
+
 }

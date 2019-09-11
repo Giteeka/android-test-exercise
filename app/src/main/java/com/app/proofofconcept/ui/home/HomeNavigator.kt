@@ -6,4 +6,5 @@ package com.app.proofofconcept.ui.home
  */
 interface HomeNavigator {
     fun showToast(s : String)
+    fun noInternetConnection()
 }

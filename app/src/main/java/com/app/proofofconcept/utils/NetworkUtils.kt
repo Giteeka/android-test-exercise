@@ -1,11 +1,13 @@
 package com.app.proofofconcept.utils
 
 import android.content.Context
+import android.net.ConnectivityManager
 
 
-object NetworkUtils {
-    fun isNetworkConnected(applicationContext: Context): Boolean {
-        // implement code of check connection
-        return true
+class NetworkUtils(var context: Context) {
+
+    fun isNetworkConnected(): Boolean {
+        val cm =  context.getSystemService (Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        return cm?.activeNetworkInfo != null && cm.activeNetworkInfo.isConnected
     }
 }
