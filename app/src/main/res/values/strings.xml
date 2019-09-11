@@ -2,4 +2,6 @@
     <string name="app_name">ProofOfConcept</string>
     <string name="no_data_found">No data found</string>
     <string name="refresh">Refresh</string>
+    <string name="no_description">No description</string>
+    <string name="no_title">No title</string>
 </resources>
