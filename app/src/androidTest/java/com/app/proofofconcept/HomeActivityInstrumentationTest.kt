@@ -42,11 +42,21 @@ class HomeActivityInstrumentationTest {
             IdlingRegistry.getInstance().unregister(fetchingIdlingResource)
     }
 
-//    @Test
-//    fun validateData() {
-//        onView(withId(R.id.rv_items)).check(matches(hasDescendant(withText("Beavers"))))
-//    }
+    /**
+     * UI Test : 1:
+     * that asserts the state of the screen when set up with all data present,
+     * check the data that its loaded perfectly and row item have text with "Beavers"
+     */
+    @Test
+    fun validateData() {
+        onView(withId(R.id.rv_items)).check(matches(hasDescendant(withText("Beavers"))))
+    }
 
+    /**
+     * * UI Test : 2 error case
+     * one that asserts the state of the screen when in an error state.
+     * check that if user is offline then it should show no internet connection snackbar toast
+     */
     @Test
     @Throws(Exception::class)
     fun pullToRefresh_shouldPass() {
