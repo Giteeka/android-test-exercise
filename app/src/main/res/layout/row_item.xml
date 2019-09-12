@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+
+    <data>
+        <variable name="rowItem"
+                  type="com.app.proofofconcept.data.model.RowItem"/>
+    </data>
+    <androidx.cardview.widget.CardView
+            app:contentPadding="8dp"
+            tools:background="#E0A9A2"
+            tools:cardBackgroundColor="#E0A9A2"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                tools:background="#BE7ABA"
+                android:layout_width="match_parent"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:textSize="18sp"
+                    android:id="@+id/tv_title"
+                    tools:background="#aaeaea"
+                    app:layout_constraintStart_toStartOf="parent"
+                    rowText="@{rowItem.title}"
+                    defaultText="@{@string/no_title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/textPrimary"
+                    android:layout_height="wrap_content" app:layout_constraintHorizontal_bias="0.533"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:textSize="14sp"
+                    rowText="@{rowItem.description}"
+                    defaultText="@{@string/no_description}"
+                    app:layout_constraintVertical_bias="0"
+                    android:id="@+id/tv_desc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_ref"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    tools:background="#F0F547"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginEnd="3dp"
+                    app:layout_constraintHorizontal_weight="0.6"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_ref"
+                    android:layout_width="0dp"
+                    app:layout_constraintHorizontal_weight="0.4"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintVertical_bias="0"
+                    android:layout_marginStart="4dp"
+                    setImagePath="@{rowItem.imageHref}"
+                    android:src="@drawable/ic_image_black_24dp"
+                    tools:background="#47BEF5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_desc"
+                    android:minWidth="80dp"
+                    android:layout_height="80dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
