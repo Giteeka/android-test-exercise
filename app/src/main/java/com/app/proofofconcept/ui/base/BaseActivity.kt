@@ -27,8 +27,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.app.proofofconcept.data.DataManager
-import com.app.proofofconcept.utils.NetworkUtils
 
+/**
+ * Base activity for handling basic activity stuff
+ * Following mindorks MVVM patterns for better structure
+ */
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppCompatActivity() {
 
     // this can probably depend on isLoading variable of BaseViewModel,
@@ -57,6 +60,12 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
      */
     abstract fun getViewModel(): V?
 
+    private var dataManager: DataManager? = null
+
+    /**
+     *  Check internet connection
+     *
+     */
     val isNetworkConnected: Boolean?
         get() = dataManager?.networkUtils?.isNetworkConnected()
 
@@ -78,7 +87,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
         return hasPermission
     }
 
-    private var dataManager: DataManager? = null
     fun getDataManager(): DataManager {
         if (dataManager == null)
             dataManager = DataManager(this)
@@ -100,6 +108,9 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
         }
     }
 
+    /**
+     * This will bind view to activity also set view model variable for its xml view
+     */
     private fun performDataBinding() {
         viewDataBinding = DataBindingUtil.setContentView(this, layoutId)
         this.mViewModel = if (mViewModel == null) getViewModel() else mViewModel

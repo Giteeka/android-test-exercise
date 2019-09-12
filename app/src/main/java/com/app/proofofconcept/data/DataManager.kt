@@ -10,6 +10,8 @@ import com.app.proofofconcept.utils.NetworkUtils
 /**
  *
  * Created by admin on 9/7/2019.
+ *
+ * DataManager class for getting instance of database, shared pref , network class in one place
  */
 
 class DataManager() {

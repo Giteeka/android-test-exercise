@@ -20,7 +20,15 @@ import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import java.lang.ref.WeakReference
 
-
+/**
+ * Base view model class which handles common properties like progress loading, error message
+ * N is Navigator class which handles callback functionality to activity/fragment (view)
+ * like switching to other fragments/activities
+ *
+ * @param N
+ * @property isLoading ObservableBoolean
+ * @property mNavigator WeakReference<N>?
+ */
 abstract class BaseViewModel<N>() : ViewModel() {
 
     val isLoading = ObservableBoolean()

@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 /**
  *
- * Created by admin on 9/7/2019.
+ * Shared Preference helper class for setter getter of shared Preference methods and data
  */
 class SharedPreferenceHelper {
 
@@ -16,7 +16,7 @@ class SharedPreferenceHelper {
         fun getInstance(context: Context): SharedPreferenceHelper {
             if (pref == null) {
                 pref = SharedPreferenceHelper()
-                pref?.setPref(context, "pref-storage")
+                pref?.setPref(context, "pref-data")
             }
             return pref!!
         }

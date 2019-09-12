@@ -10,7 +10,6 @@ import com.app.proofofconcept.databinding.RowItemBinding
 
 class HomeAdapter(var list: List<RowItem>?) : RecyclerView.Adapter<HomeAdapter.DataViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(
             DataBindingUtil.inflate(
